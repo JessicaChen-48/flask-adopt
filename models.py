@@ -1,6 +1,7 @@
 """Models for adopt app."""
 
 from flask_sqlalchemy import SQLAlchemy
+from flask_debugtoolbar import DebugToolbarExtension
 
 db = SQLAlchemy()
 
@@ -13,3 +14,24 @@ def connect_db(app):
 
     db.app = app
     db.init_app(app)
+
+class Pet(db.Model):
+    """ Pet model """
+
+    id = db.Column(db.Integer,
+                primary_key=True,
+                autoincrement=True)
+    
+    name = db.Column(db.Text, nullable=False)
+
+    species = db.Column(db.Text, nullable=False)
+
+    photo_url = db.Column(db.Text, nullable=False, default='')
+
+    # may need to validate that input is within
+        # baby, young, adult, or senior
+    age = db.Column(db.Text, nullable=False)
+
+    notes = db.Column(db.Text, nullable=True)
+
+    available = db.Column(db.Boolean, default=True)
