@@ -6,7 +6,7 @@
 
 {% for pet in pets %}
 <p>
-{{pet.name}}
+<a href="/{{pet.id}}">{{pet.name}}</a>
 
 <img src="{{pet.photo_url}}" alt="cute and cuddly">
 

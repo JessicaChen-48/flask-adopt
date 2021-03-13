@@ -18,6 +18,8 @@ def connect_db(app):
 class Pet(db.Model):
     """ Pet model """
 
+    __tablename__ = "pets"
+
     id = db.Column(db.Integer,
                 primary_key=True,
                 autoincrement=True)
@@ -28,8 +30,6 @@ class Pet(db.Model):
 
     photo_url = db.Column(db.Text, nullable=False, default='')
 
-    # may need to validate that input is within
-        # baby, young, adult, or senior
     age = db.Column(db.Text, nullable=False)
 
     notes = db.Column(db.Text, nullable=True)

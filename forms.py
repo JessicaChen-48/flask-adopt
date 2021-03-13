@@ -9,28 +9,23 @@ class AddPet(FlaskForm):
 
     name = StringField(
         "Name",
-        validators=[InputRequired()],
-    )
+        validators=[InputRequired()])
 
     species = SelectField(
         "Species",
-        choices=[("cat", "Cat"), ("dog", "Dog"), ("porcupine", "Porcupine")],
-    )
+        choices=[("cat", "Cat"), ("dog", "Dog"), ("porcupine", "Porcupine")])
 
     photo_url = StringField(
         "Photo URL",
-        validators=[Optional(), URL()],
-    ) 
+        validators=[Optional(), URL()]) 
 
     age = SelectField(
         "Age",
-        choices=[("baby", "Baby"), ("young", "Young"), ("adult", "Adult"), ("senior", "Senior")],
-    )
+        choices=[("baby", "Baby"), ("young", "Young"), ("adult", "Adult"), ("senior", "Senior")])
 
     notes = TextAreaField(
         "Comments",
-        validators=[Optional()]
-    )
+        validators=[Optional()])
 
 
 class EditPet(FlaskForm):
@@ -38,13 +33,10 @@ class EditPet(FlaskForm):
 
     photo_url = StringField(
         "Photo URL",
-        validators=[Optional(), URL()],
-
-    )
+        validators=[Optional(), URL()])
 
     notes = TextAreaField(
         "Comments",
-        validators=[Optional()]
-    )
+        validators=[Optional()])
 
     available = BooleanField("Available?")
